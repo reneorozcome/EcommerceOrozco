@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons')
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Stick+No+Bills:wght@300;400;800&display=swap')
+
+$roboto: 'Roboto Serif', sans-serif
+$stick-no-bills: 'Stick No Bills', sans-serif
+$color-principal: #731F3E
+
+*
+    box-sizing: border-box
+    font-family: $roboto
+
+h1, h2, h3, h4, h5, h6
+    font-family: $stick-no-bills
+    font-weight: 700
+
+html, body, #root
+    font-weight: 300
+    height: 100%
+    margin: 0
+    padding: 0
+    width: 100%
+
+#root
+    display: grid
+    grid-template-rows: 60px auto 80px
+
+header, footer
+    align-items: center
+    background: $color-principal
+    color: white
+    display: flex
+    justify-content: space-between
+    padding: 0 30px
+    width: 100%
+    h1
+        font-size: 24px
+        .material-icons
+            padding-bottom: 6px
+            vertical-align: middle
+    a
+        color: white
+        display: inline-block
+        line-height: 1em
+        padding: 0 30px
+        text-decoration: none !important
+        vertical-align: middle
+        .material-icons
+            font-size: 1.4em
+
+footer
+    font-size: 14px
+    justify-content: center
+    text-align: center
