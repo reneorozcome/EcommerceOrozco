@@ -1,4 +1,5 @@
 import NavBar from './NavBar'
+import ItemListContainer from './ItemListContainer'
 
 const App = () => {
     return (
@@ -7,7 +8,7 @@ const App = () => {
                 <NavBar />
             </header>
             <section>
-
+                <ItemListContainer greeting="No hay productos en tu carrito" />
             </section>
             <footer>
                 © Todos los derechos reservados eCommerce Orozco<br />

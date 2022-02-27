@@ -4,6 +4,7 @@
 $roboto: 'Roboto Serif', sans-serif
 $stick-no-bills: 'Stick No Bills', sans-serif
 $color-principal: #731F3E
+$color-texto: #333333
 
 *
     box-sizing: border-box
@@ -26,28 +27,176 @@ html, body, #root
 
 header, footer
     align-items: center
-    background: $color-principal
+    background-color: $color-principal
     color: white
     display: flex
     justify-content: space-between
     padding: 0 30px
     width: 100%
+header
+    flex-wrap: wrap
+    position: relative
+    .nav-button
+        display: block
+        height: 19px
+        padding: 8px 0 0
+        position: absolute
+        left: 20px
+        width: 24px
+        span, span::before, span:after
+            background-color: white
+            border-radius: 2px
+            content: ""
+            display: block
+            height: 3px
+            position: absolute
+            width: 100%
+        span::before
+            top: -8px
+        span::after
+            bottom: -8px
     h1
         font-size: 24px
+        margin: 14px 0
+        text-align: center
+        width: 100%
         .material-icons
-            padding-bottom: 6px
+            font-size: 1em
+            padding-bottom: 0.3em
             vertical-align: middle
     a
         color: white
-        display: inline-block
+        display: block
         line-height: 1em
-        padding: 0 30px
+        padding: 10px 20px
+        position: relative
+        text-align: center
         text-decoration: none !important
         vertical-align: middle
+        width: 100%
         .material-icons
             font-size: 1.4em
+    nav
+        background-color: #D92958
+        flex: auto
+        left: 0
+        max-height: 0
+        padding: 0
+        position: absolute
+        text-align: right
+        top: 60px
+        transition: max-height 300ms, padding 300ms
+        width: 100%
+        &.in
+            max-height: 100vh
+            padding: 40px 0
+    .cart
+        position: absolute
+        right: 0
+        width: auto
+        &:hover .cart-list
+            right: 0 !important
+        &:hover .cart-list:hover::before
+            background-color: #000000AA
+        .cart-items
+            align-items: center
+            background-color: #F2358D
+            border-radius: 50%
+            color: white
+            display: flex
+            font-family: $stick-no-bills
+            font-size: 14px
+            font-weight: 800
+            height: 18px
+            justify-content: center
+            line-height: 1em
+            position: absolute
+            right: 12px
+            top: 2px
+            width: 18px
+        .cart-list
+            height: 100vh
+            max-width: 280px
+            padding: 30px
+            position: fixed
+            right: -280px
+            top: 0
+            transition: all 300ms
+            width: 280px
+            z-index: 999999
+            &::before, &::after
+                background-color: transparent
+                content: ""
+                height: 100vh
+                pointer-events: none
+                position: absolute
+                right: 0
+                top: 0
+                transition: all 300ms
+                width: calc(100vw + 280px)
+                z-index: 0
+            &::after
+                background-color: white
+                width: 100%
+                z-index: 1
+            > *
+                color: $color-texto
+                position: relative
+                z-index: 2
 
 footer
     font-size: 14px
     justify-content: center
     text-align: center
+
+@media (min-width: 768px)
+    header
+        .nav-button
+            display: none
+        h1
+            font-size: 20px
+            text-align: left
+            width: auto
+        a
+            display: inline-block
+            font-size: 14px
+            padding: 10px 8px
+            width: auto
+        nav
+            background-color: transparent
+            left: auto
+            max-height: none
+            padding: 0
+            position: relative
+            top: auto
+            width: auto
+        .cart
+            position: relative
+            right: auto
+            .cart-items
+                right: 0px
+
+@media (min-width: 1024px)
+    header
+        h1
+            font-size: 24px
+        a
+            font-size: 16px
+            padding: 10px 20px
+        .cart
+            .cart-items
+                right: 10px
+
+@media (hover: hover)
+    header
+        a::after
+            background-color: #D92958
+            bottom: 5px
+            content: ""
+            height: 2px
+            left: 20px
+            position: absolute
+            transition: all 300ms
+            width: 0
+        a:hover::after
+            width: calc(100% - 40px)
