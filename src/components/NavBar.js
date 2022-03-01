@@ -13,9 +13,7 @@ const NavBar = () => {
                 <a href="#">Fondos de pantalla</a>
                 <a href="#">Llaveros</a>
             </nav>
-            <CartWidget>
-                <ItemListContainer greeting="No hay productos en tu carrito" />
-            </CartWidget>
+            <CartWidget />
         </>
     )
 }

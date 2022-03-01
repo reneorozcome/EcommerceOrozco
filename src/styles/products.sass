@@ -1,0 +1,55 @@
+@use 'vars' as v
+
+section
+    align-items: center
+    display: flex
+    font-size: 24px
+    justify-content: center
+    padding: 30px
+    text-align: center
+
+.product
+    border: 2px solid v.$color-secundario
+    border-radius: 8px
+    display: inline-block
+    height: 180px
+    margin: 0 10px 20px
+    padding: 30px
+    max-width: 260px
+    h4, p, button
+        font-family: v.$roboto
+        margin: 0 0 4px
+    h4
+        color: v.$color-secundario
+    p
+        font-size: 14px
+    .control
+        button
+            align-items: center
+            background-color: v.$color-secundario2
+            border: none
+            border-radius: 50%
+            color: white
+            cursor: pointer
+            display: inline-flex
+            font-weight: 900
+            height: 20px
+            justify-content: center
+            width: 20px
+        input
+            border: 1px solid v.$color-secundario2
+            border-radius: 8px
+            line-height: 20px
+            margin: 0 8px
+            text-align: center
+            width: 60px
+    & > button
+        background-color: v.$color-principal2
+        border: none
+        border-radius: 8px
+        color: white
+        margin-top: 8px
+        padding: 8px 30px
+    &.empty-stock
+        .control, button
+            display: none

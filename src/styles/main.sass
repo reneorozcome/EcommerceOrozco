@@ -1,17 +1,14 @@
+@use 'vars' as v
+
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons')
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Stick+No+Bills:wght@300;400;800&display=swap')
 
-$roboto: 'Roboto Serif', sans-serif
-$stick-no-bills: 'Stick No Bills', sans-serif
-$color-principal: #731F3E
-$color-texto: #333333
-
 *
     box-sizing: border-box
-    font-family: $roboto
+    font-family: v.$roboto
 
 h1, h2, h3, h4, h5, h6
-    font-family: $stick-no-bills
+    font-family: v.$stick-no-bills
     font-weight: 700
 
 html, body, #root
@@ -27,7 +24,7 @@ html, body, #root
 
 header, footer
     align-items: center
-    background-color: $color-principal
+    background-color: v.$color-principal
     color: white
     display: flex
     justify-content: space-between
@@ -77,7 +74,7 @@ header
         .material-icons
             font-size: 1.4em
     nav
-        background-color: #D92958
+        background-color: v.$color-principal2
         flex: auto
         left: 0
         max-height: 0
@@ -104,7 +101,7 @@ header
             border-radius: 50%
             color: white
             display: flex
-            font-family: $stick-no-bills
+            font-family: v.$stick-no-bills
             font-size: 14px
             font-weight: 800
             height: 18px
@@ -140,7 +137,7 @@ header
                 width: 100%
                 z-index: 1
             > *
-                color: $color-texto
+                color: v.$color-texto
                 position: relative
                 z-index: 2
 
