@@ -1,15 +1,17 @@
 import { useState } from "react"
 
 const ItemCount = (props) => {
-    const [quantity, setQuantity] = useState(props.init)
-    const productClass = props.stock > 0 ? 'product' : 'product empty-stock'
+    const [quantity, setQuantity] = useState(1)
     const addItem = () => { if(quantity < props.stock) setQuantity(quantity + 1) }
     const subItem = () => { if(quantity > 0) setQuantity(quantity - 1) }
-    const addToCart = () => { props.onAdd(quantity); setQuantity(1) }
+    const addToCart = () => {
+        if(props.stock - quantity >= 0)
+            props.setStock(props.stock - quantity)
+        setQuantity(1)
+    }
 
     return (
-        <div className={productClass}>
-            <h4>{props.name}</h4>
+        <div className="add-to-cart">
             <p>{props.stock} en stock</p>
             <div className="control">
                 <button onClick={subItem}>-</button>

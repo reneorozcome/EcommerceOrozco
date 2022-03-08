@@ -2,9 +2,6 @@ import { useState } from "react"
 
 const CartWidget = (props) => {
     const [state, setState] = useState(0)
-    const handleClick = () => {
-        setState(state + 1)
-    }
 
     return (
         <div className="cart">

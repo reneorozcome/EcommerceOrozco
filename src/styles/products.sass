@@ -3,27 +3,52 @@
 section
     align-items: center
     display: flex
+    flex-wrap: wrap
     font-size: 24px
     justify-content: center
     padding: 30px
     text-align: center
 
 .product
+    align-content: flex-start
     border: 2px solid v.$color-secundario
     border-radius: 8px
-    display: inline-block
-    height: 180px
+    display: inline-flex
+    flex-wrap: wrap
+    height: 340px
+    justify-content: space-between
     margin: 0 10px 20px
-    padding: 30px
     max-width: 260px
-    h4, p, button
+    padding: 30px 20px
+    position: relative
+    text-align: left
+    img
+        border-radius: 6px 6px 0 0
+        height: 160px
+        margin: -30px -20px 8px
+        object-fit: cover
+        width: calc(100% + 40px)
+    h4, h5, h6, p, button
         font-family: v.$roboto
-        margin: 0 0 4px
+        margin: 0 0 8px
+        width: 100%
     h4
         color: v.$color-secundario
-    p
+        font-size: 22px
+    h5, h6
         font-size: 14px
-    .control
+        width: auto
+    h6
+        color: v.$color-principal3
+        font-size: 18px
+    p
+        font-size: 11px
+        margin-bottom: 0
+    .add-to-cart
+        bottom: 0
+        position: absolute
+        text-align: center
+        width: calc(100% - 40px)
         button
             align-items: center
             background-color: v.$color-secundario2
@@ -43,13 +68,22 @@ section
             margin: 0 8px
             text-align: center
             width: 60px
-    & > button
-        background-color: v.$color-principal2
-        border: none
-        border-radius: 8px
-        color: white
-        margin-top: 8px
-        padding: 8px 30px
+        & > button
+            background-color: v.$color-principal3
+            border: none
+            border-radius: 0 0 6px 6px
+            bottom: 0
+            color: white
+            margin: 8px -20px 0
+            padding: 16px 0
+            width: calc(100% + 40px)
     &.empty-stock
-        .control, button
+        .control
             display: none
+        button
+            background-color: gray
+            font-size: 0
+            &::before
+                display: block
+                content: "No hay existencias"
+                font-size: 13px
