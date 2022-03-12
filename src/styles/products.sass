@@ -9,6 +9,9 @@ section
     padding: 30px
     text-align: center
 
+.products
+    width: 100%
+
 .product
     align-content: flex-start
     border: 2px solid v.$color-secundario
@@ -87,3 +90,16 @@ section
                 display: block
                 content: "No hay existencias"
                 font-size: 13px
+    &.detail
+        height: auto
+        max-width: 100%
+        padding: 30px 20px 0
+        width: 100%
+        img
+            height: auto
+            margin-bottom: 0
+            min-height: 100%
+            width: 30%
+        .detail
+            position: relative
+            width: calc(70% - 45px)

@@ -70,6 +70,8 @@ header
         width: 100%
         .material-icons
             font-size: 1.4em
+        &.active::after
+            width: calc(100% - 40px)
     nav
         background-color: v.$color-principal2
         flex: auto
@@ -142,6 +144,9 @@ footer
     font-size: 14px
     justify-content: center
     text-align: center
+
+hr, h4
+    width: 100%
 
 @media (min-width: 768px)
     header

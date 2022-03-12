@@ -1,5 +1,6 @@
 import NavBar from './NavBar'
 import ItemListContainer from './ItemListContainer'
+import ItemDetailContainer from './ItemDetailContainer'
 
 const App = () => {
     return (
@@ -8,6 +9,9 @@ const App = () => {
                 <NavBar />
             </header>
             <section>
+                <ItemDetailContainer />
+                <hr />
+                <h4>Más productos</h4>
                 <ItemListContainer greeting="No hay productos en tu carrito" />
             </section>
             <footer>
