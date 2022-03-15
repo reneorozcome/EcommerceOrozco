@@ -1,11 +1,11 @@
 import Item from './Item'
 
-const ItemList = (props) => {
+const ItemList = ({categories, products}) => {
     return (
-        <div className="products">
-            { props.products.map((p) => {
-                return <Item key={p.pid} product={p} />
-            })}
+        <div className="container products">
+            { products.map((p) => {
+                return <Item key={p.id} product={p} categories={categories} />
+            }) }
         </div>
     )
 }

@@ -1,20 +1,28 @@
-import { useState } from "react"
+import { useState } from 'react'
 import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom'
 
-const ItemDetail = (props) => {
-    const [stock, setStock] = useState(props.product.stock)
-    const productClass = stock > 0 ? 'product detail' : 'product detail empty-stock'
-
-    if(props.product.pid == 0)
-        return <></>
+const ItemDetail = ({categories, product}) => {
+    const [stock, setStock] = useState(product.stock)
+    const productClass = stock ? 'product detail' : 'product detail empty-stock'
+    const onAdd = (stock) => {
+        setStock(stock)
+    }
+    
     return (
         <div className={productClass}>
-            <img src={props.product.thumbnail} alt={props.product.name} />
+            <img src={product.thumbnail} alt={product.name} />
             <div className="detail">
-                <h5>{props.product.categories.join(', ')}</h5>
-                <h4>{props.product.name}</h4>
-                <h6>{'$ '+props.product.price.toLocaleString('es')}</h6>
-                <ItemCount stock={stock} setStock={setStock} />
+                <h5>{product.categories.map((c) => {
+                    const category = categories.find(e => e.slug == c)
+                    return <Link key={category.cid} to={`/category/${category.slug}/`}>{category.name}</Link>
+                }).reduce((prev, curr) => [prev, ', ', curr])}</h5>
+                <h1>{product.name}</h1>
+                <hr />
+                <p>{product.description}</p>
+                <hr />
+                <h3>{'$ '+product.price.toLocaleString('es')}</h3>
+                <ItemCount stock={stock} onAdd={onAdd} />
             </div>
         </div>
     )

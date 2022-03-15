@@ -1,49 +1,64 @@
-@use 'vars' as v
-
-section
+main
     align-items: center
     display: flex
     flex-wrap: wrap
     font-size: 24px
     justify-content: center
+    min-height: calc(100vh - 140px)
     padding: 30px
     text-align: center
 
-.products
+.products, .products-detail
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+.products-detail
     width: 100%
 
 .product
     align-content: flex-start
-    border: 2px solid v.$color-secundario
+    border: 2px solid var(--color-secundario)
     border-radius: 8px
     display: inline-flex
     flex-wrap: wrap
     height: 340px
     justify-content: space-between
     margin: 0 10px 20px
-    max-width: 260px
-    padding: 30px 20px
+    min-width: 260px
+    max-width: calc((100% / 3) - 20px)
+    padding: 30px 15px
     position: relative
     text-align: left
+    & > a
+        display: block
+        height: 195px
+        left: 0
+        position: absolute
+        top: 0
+        width: 100%
+        z-index: 1
     img
         border-radius: 6px 6px 0 0
         height: 160px
-        margin: -30px -20px 8px
+        margin: -30px -15px 8px
         object-fit: cover
         width: calc(100% + 40px)
     h4, h5, h6, p, button
-        font-family: v.$roboto
+        font-family: var(--roboto)
         margin: 0 0 8px
         width: 100%
     h4
-        color: v.$color-secundario
-        font-size: 22px
-    h5, h6
-        font-size: 14px
+        color: var(--color-secundario)
+        font-size: 20px
+    h5
+        font-size: 11px
+        font-weight: 400
+        max-width: calc(100% - 80px)
         width: auto
     h6
-        color: v.$color-principal3
+        color: var(--color-principal3)
         font-size: 18px
+        width: auto
     p
         font-size: 11px
         margin-bottom: 0
@@ -54,7 +69,7 @@ section
         width: calc(100% - 40px)
         button
             align-items: center
-            background-color: v.$color-secundario2
+            background-color: var(--color-secundario2)
             border: none
             border-radius: 50%
             color: white
@@ -65,19 +80,19 @@ section
             justify-content: center
             width: 20px
         input
-            border: 1px solid v.$color-secundario2
+            border: 1px solid var(--color-secundario2)
             border-radius: 8px
             line-height: 20px
             margin: 0 8px
             text-align: center
             width: 60px
         & > button
-            background-color: v.$color-principal3
+            background-color: var(--color-principal3)
             border: none
             border-radius: 0 0 6px 6px
             bottom: 0
             color: white
-            margin: 8px -20px 0
+            margin: 8px -15px 0
             padding: 16px 0
             width: calc(100% + 40px)
     &.empty-stock
@@ -91,15 +106,45 @@ section
                 content: "No hay existencias"
                 font-size: 13px
     &.detail
+        border: none
         height: auto
         max-width: 100%
-        padding: 30px 20px 0
+        padding: 30px 15px 0
         width: 100%
         img
             height: auto
             margin-bottom: 0
             min-height: 100%
-            width: 30%
+            width: 50%
         .detail
+            padding-bottom: 100px
             position: relative
-            width: calc(70% - 45px)
+            width: calc(50% - 45px)
+            h1
+                color: var(--color-secundario)
+                line-height: 1em
+                margin: 0.2em 0
+            h5 a
+                color: var(--color-principal3)
+                font-size: 14px
+            p
+                font-size: 16px
+                line-height: 1.5em
+            .add-to-cart
+                align-items: center
+                bottom: auto
+                display: flex
+                position: relative
+                text-align: left
+                width: auto
+                p
+                    width: auto
+                .control
+                    margin: 0 0 0 15px
+                    min-width: 120px
+                & > button
+                    border-radius: 6px
+                    margin: 0 0 0 15px
+                    min-width: 120px
+                    padding: 16px
+                    width: auto

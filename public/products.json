@@ -1,0 +1,29 @@
+[{
+    "id":1,"name":"aliqua enim Lorem","slug":"aliqua-enim-lorem","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":75000,"stock":9,"thumbnail":"https://picsum.photos/id/11/500/300","categories":["afiches"]
+},{
+    "id":2,"name":"sint elit laborum Lorem","slug":"sint-elit-laborum-lorem","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":66000,"stock":74,"thumbnail":"https://picsum.photos/id/12/500/300","categories":["figuras-de-accion","llaveros"]
+},{
+    "id":3,"name":"nisi ipsum","slug":"nisi-ipsum","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":54000,"stock":67,"thumbnail":"https://picsum.photos/id/13/500/300","categories":["fondos-de-pantalla"]
+},{
+    "id":4,"name":"commodo dolore consequat labore","slug":"commodo-dolore-consequat-labore","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":44000,"stock":34,"thumbnail":"https://picsum.photos/id/14/500/300","categories":["afiches","fondos-de-pantalla"]
+},{
+    "id":5,"name":"aliqua labore","slug":"aliqua-labore","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":96000,"stock":77,"thumbnail":"https://picsum.photos/id/15/500/300","categories":["afiches"]
+},{
+    "id":6,"name":"culpa et ex","slug":"culpa-et-ex","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":49000,"stock":37,"thumbnail":"https://picsum.photos/id/16/500/300","categories":["afiches","llaveros"]
+},{
+    "id":7,"name":"veniam dolor","slug":"veniam-dolor","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":8000,"stock":78,"thumbnail":"https://picsum.photos/id/17/500/300","categories":["afiches","figuras-de-accion"]
+},{
+    "id":8,"name":"mollit sint aute sit","slug":"mollit-sint-aute-sit","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":86000,"stock":88,"thumbnail":"https://picsum.photos/id/18/500/300","categories":["afiches"]
+},{
+    "id":9,"name":"ex proident quis incididunt","slug":"ex-proident-quis-incididunt","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":72000,"stock":30,"thumbnail":"https://picsum.photos/id/19/500/300","categories":["figuras-de-accion","llaveros"]
+},{
+    "id":10,"name":"amet duis fugiat consectetur","slug":"amet-duis-fugiat-consectetur","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":18000,"stock":45,"thumbnail":"https://picsum.photos/id/110/500/300","categories":["llaveros"]
+},{
+    "id":11,"name":"labore ad et","slug":"labore-ad-et","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":73000,"stock":27,"thumbnail":"https://picsum.photos/id/111/500/300","categories":["figuras-de-accion","fondos-de-pantalla","llaveros"]
+},{
+    "id":12,"name":"Lorem aliqua","slug":"lorem-aliqua","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":56000,"stock":7,"thumbnail":"https://picsum.photos/id/112/500/300","categories":["fondos-de-pantalla"]
+},{
+    "id":13,"name":"ut do","slug":"ut-do","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":32000,"stock":27,"thumbnail":"https://picsum.photos/id/113/500/300","categories":["fondos-de-pantalla","figuras-de-accion"]
+},{
+    "id":14,"name":"ad nisi ea aliquip","slug":"ad-nisi-ea-aliquip","description":"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.","price":57000,"stock":59,"thumbnail":"https://picsum.photos/id/114/500/300","categories":["fondos-de-pantalla","afiches"]
+}]

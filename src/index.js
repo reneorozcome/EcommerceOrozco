@@ -1,7 +1,9 @@
-import React from 'react'
+import 'react-toastify/dist/ReactToastify.css'
+import './styles/vars.sass'
 import './styles/main.sass'
 import './styles/products.sass'
-import ReactDOM from 'react-dom'
+
+import { render } from 'react-dom'
 import App from './components/App'
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+render(<App/>, document.getElementById('root'))

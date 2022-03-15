@@ -1,22 +1,43 @@
-import { useState, useEffect } from "react"
+import Loading from './Loading'
 import ItemDetail from './ItemDetail'
-import productsJson from './products'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { toast, Flip } from 'react-toastify'
 
-const ItemListContainer = () => {
-    const [product, setProduct] = useState({pid: 0})
-    const getItem = (item) => {
-        new Promise((r) => { setTimeout(() => { r() }, 2000) })
-            .then(() => { setProduct(productsJson.products[item]) })
-    }
+const ItemDetailContainer = ({categories}) => {
+    const { itemId } = useParams()
+    const [ product, setProduct ] = useState(true)
+    const [ loading, setLoading ] = useState(true)
+    const [ productId, setProductId ] = useState(true)
 
     useEffect(() => {
-        getItem(0)
-    }, [])
+        if(!loading && itemId !== productId){
+            setProductId(itemId)
+            setLoading(true)
+        }else if(loading){
+            setTimeout(() => {
+                const getCategories = fetch('/products.json')
+                    .then((res) => { return res.json() })
+                    .then((data) => {
+                        if(itemId != undefined){
+                            data = data.find(e => e.id == itemId)
+                            setProduct(data)
+                            return true
+                        }
+                        return false
+                    })
+                    .catch(() => { toast.error('Ocurrió un error al intentar cargar los productos.', { theme: "colored", transition: Flip }) })
+                    .finally(() => { setLoading(false) })
+            }, 2000)
+        }
+    }, [loading, itemId])
 
+    if(loading)
+        return <Loading />
     return (
-        <div className="products">
-            <ItemDetail key={product.pid} product={product} />
+        <div className="container products-detail">
+            <ItemDetail key={itemId} product={product} categories={categories} />
         </div>
     )
 }
-export default ItemListContainer
+export default ItemDetailContainer

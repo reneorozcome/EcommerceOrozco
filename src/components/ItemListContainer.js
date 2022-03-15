@@ -1,20 +1,36 @@
-import { useState, useEffect } from "react"
+import Loading from './Loading'
 import ItemList from './ItemList'
-import productsJson from './products'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { toast, Flip } from 'react-toastify'
 
-const ItemListContainer = () => {
-    const [products, setProducts] = useState([])
-    const getProducts = () => {
-        new Promise((r) => { setTimeout(() => { r() }, 2000) })
-            .then(() => { setProducts(productsJson.products) })
-    }
+const ItemListContainer = ({categories}) => {
+    const { categoryId } = useParams()
+    const [ products, setProducts ] = useState([])
+    const [ loading, setLoading ] = useState(false)
+    const [ category, setCategory ] = useState(true)
 
     useEffect(() => {
-        getProducts()
-    }, [])
+        if(!loading && categoryId !== category){
+            setCategory(categoryId)
+            setLoading(true)
+        }else if(loading){
+            setTimeout(() => {
+                const getCategories = fetch('/products.json')
+                    .then((res) => { return res.json() })
+                    .then((data) => {
+                        if(categoryId != undefined)
+                            data = data.filter(e => e.categories.includes(categoryId))
+                        setProducts(data)
+                    })
+                    .catch(() => { toast.error('Ocurrió un error al intentar cargar los productos.', { theme: "colored", transition: Flip }) })
+                    .finally(() => { setLoading(false) })
+            }, 2000)
+        }
+    }, [loading, categoryId])
 
-    return (
-        <ItemList products={products} />
-    )
+    if(loading)
+        return <Loading />
+    return <ItemList categories={categories} category={category} products={products} />
 }
 export default ItemListContainer

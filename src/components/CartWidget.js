@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 const CartWidget = (props) => {
     const [state, setState] = useState(0)
