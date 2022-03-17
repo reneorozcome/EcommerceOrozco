@@ -36,7 +36,7 @@ const ItemDetailContainer = ({categories}) => {
         return <Loading />
     return (
         <div className="container products-detail">
-            <ItemDetail key={itemId} product={product} categories={categories} />
+            <ItemDetail key={itemId} item={product} categories={categories} />
         </div>
     )
 }

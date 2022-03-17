@@ -5,8 +5,7 @@ const ItemCount = ({stock, onAdd}) => {
     const addItem = () => { if(quantity < stock) setQuantity(quantity + 1) }
     const subItem = () => { if(quantity > 0) setQuantity(quantity - 1) }
     const addToCart = () => {
-        if(stock - quantity >= 0)
-            onAdd(stock - quantity)
+        onAdd(quantity)
         setQuantity(1)
     }
 

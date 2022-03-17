@@ -1,3 +1,4 @@
+import Cart from './Cart'
 import NavBar from './NavBar'
 import { useState, useEffect } from 'react'
 import ItemListContainer from './ItemListContainer'
@@ -25,7 +26,7 @@ const App = () => {
                     <Route path="/" element={<ItemListContainer categories={categories}/>} />
                     <Route path="/category/:categoryId" element={<ItemListContainer categories={categories} />} />
                     <Route path="/item/:itemId" element={<ItemDetailContainer categories={categories} />} />
-                    <Route path="/cart" />
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
             </main>
             <footer>
