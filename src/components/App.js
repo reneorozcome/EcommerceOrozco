@@ -1,40 +1,33 @@
 import Cart from './Cart'
 import NavBar from './NavBar'
-import { useState, useEffect } from 'react'
+import CartContext from './CartContext'
+import { ToastContainer } from 'react-toastify'
 import ItemListContainer from './ItemListContainer'
 import ItemDetailContainer from './ItemDetailContainer'
-import { ToastContainer, toast, Flip } from 'react-toastify'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 const App = () => {
-    const [ categories, setCategories ] = useState([])
-
-    useEffect(() => {
-        const getCategories = fetch('/categories.json')
-            .then((res) => { return res.json() })
-            .then((data) => { setCategories(data) })
-            .catch(() => { toast.error('Ocurrió un error al intentar cargar las categorías.', { theme: "colored", transition: Flip }) })
-    }, [])
-
     return (
-        <BrowserRouter>
-            <header>
-                <NavBar categories={categories} />
-            </header>
-            <main>
-                <Routes>
-                    <Route path="/" element={<ItemListContainer categories={categories}/>} />
-                    <Route path="/category/:categoryId" element={<ItemListContainer categories={categories} />} />
-                    <Route path="/item/:itemId" element={<ItemDetailContainer categories={categories} />} />
-                    <Route path="/cart" element={<Cart />} />
-                </Routes>
-            </main>
-            <footer>
-                © Todos los derechos reservados eCommerce Orozco<br />
-                con amor por reneorozco
-            </footer>
-            <ToastContainer position="bottom-right" />
-        </BrowserRouter>
+        <CartContext>
+            <BrowserRouter>
+                <header>
+                    <NavBar />
+                </header>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<ItemListContainer />} />
+                        <Route path="/category/:categoryId" element={<ItemListContainer />} />
+                        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+                        <Route path="/cart" element={<Cart />} />
+                    </Routes>
+                </main>
+                <footer>
+                    © Todos los derechos reservados eCommerce Orozco<br />
+                    con amor por reneorozco
+                </footer>
+                <ToastContainer position="bottom-right" />
+            </BrowserRouter>
+        </CartContext>
     )
 }
 export default App

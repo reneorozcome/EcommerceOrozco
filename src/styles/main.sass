@@ -144,16 +144,48 @@ header
                 background-color: white
                 width: 100%
                 z-index: 1
-            > *
+            & > *
                 color: var(--color-texto)
                 position: relative
                 z-index: 2
+            .item
+                border-bottom: 1px dashed var(--color-texto)
+                display: block
+                padding: 20px 30px 20px 0
+                position: relative
+                button
+                    align-items: center
+                    background: var(--color-principal2)
+                    border: none
+                    border-radius: 50%
+                    color: white
+                    cursor: pointer
+                    display: flex
+                    font-family: sans-serif
+                    height: 20px
+                    justify-content: center
+                    position: absolute
+                    right: 0
+                    top: calc(50% - 10px)
+                    width: 20px
+                span
+                    display: block
+                .price
+                    color: var(--color-secundario2)
+                    margin: 0
+            .button
+                color: white
+                margin-top: 20px
+                &::after
+                    display: none !important
 
 footer
     font-size: 14px
     justify-content: center
     text-align: center
 
+.right
+    text-align: right
 .container
     margin: auto
     max-width: 1024px

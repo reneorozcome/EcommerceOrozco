@@ -1,36 +1,23 @@
 import Loading from './Loading'
 import ItemList from './ItemList'
-import { useState, useEffect } from 'react'
+import { CartContext } from './CartContext'
 import { useParams } from 'react-router-dom'
-import { toast, Flip } from 'react-toastify'
+import { useState, useEffect, useContext } from 'react'
 
-const ItemListContainer = ({categories}) => {
+const ItemListContainer = () => {
     const { categoryId } = useParams()
-    const [ products, setProducts ] = useState([])
-    const [ loading, setLoading ] = useState(false)
-    const [ category, setCategory ] = useState(true)
+    const { loading, products } = useContext(CartContext)
+    const [ productsFiltered, setProductsFiltered ] = useState([])
 
     useEffect(() => {
-        if(!loading && categoryId !== category){
-            setCategory(categoryId)
-            setLoading(true)
-        }else if(loading){
-            setTimeout(() => {
-                const getCategories = fetch('/products.json')
-                    .then((res) => { return res.json() })
-                    .then((data) => {
-                        if(categoryId != undefined)
-                            data = data.filter(e => e.categories.includes(categoryId))
-                        setProducts(data)
-                    })
-                    .catch(() => { toast.error('Ocurrió un error al intentar cargar los productos.', { theme: "colored", transition: Flip }) })
-                    .finally(() => { setLoading(false) })
-            }, 2000)
-        }
+        if(categoryId != undefined)
+            setProductsFiltered(products.filter(e => e.categories.includes(categoryId)))
+        else
+            setProductsFiltered(products)
     }, [loading, categoryId])
 
     if(loading)
         return <Loading />
-    return <ItemList categories={categories} category={category} products={products} />
+    return <ItemList products={productsFiltered} />
 }
 export default ItemListContainer
