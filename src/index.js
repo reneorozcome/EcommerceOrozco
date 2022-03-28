@@ -3,7 +3,7 @@ import './styles/vars.sass'
 import './styles/main.sass'
 import './styles/products.sass'
 
+import App from './components/layout/App'
 import { render } from 'react-dom'
-import App from './components/App'
 
-render(<App/>, document.getElementById('root'))
+render(<App />, document.getElementById('root'))

@@ -1,11 +1,12 @@
-import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
-import { CartContext } from './CartContext'
 import { toast, Flip } from 'react-toastify'
 import { useState, useContext } from 'react'
+import { CartContext } from '../cart/CartContext'
+
+import ItemCount from '../store/ItemCount'
 
 const Item = ({ item }) => {
-    const [ quantity, setQuantity ] = useState(0)
+    const [ quantity, setQuantity ] = useState(false)
     const productClass = item.stock ? '' : ' empty-stock'
     const { categories, addItem } = useContext(CartContext)
     const onAdd = (quantityToAdd) => {

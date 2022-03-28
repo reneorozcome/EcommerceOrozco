@@ -16,10 +16,39 @@ html, body, #root
     margin: 0
     padding: 0
     width: 100%
+body
+    overflow-x: hidden
+    overflow-y: scroll
 
+@keyframes spin
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(359deg)
 #root
     display: grid
     grid-template-rows: 60px auto 80px
+    position: relative
+    .loading
+        align-items: center
+        background: #FFFFFF
+        display: flex
+        font-size: 22px
+        height: 100%
+        justify-content: center
+        left: 0
+        opacity: 0
+        pointer-events: none
+        position: fixed
+        top: 0
+        transition: opacity 500ms ease
+        width: 100%
+        z-index: 1
+        span
+            animation: spin 1s linear 0s infinite
+    .loading.true
+        opacity: 1
+        transition: none
 
 header, footer
     align-items: center
@@ -29,6 +58,7 @@ header, footer
     justify-content: space-between
     padding: 0 30px
     width: 100%
+    z-index: 2
 header
     .container
         display: flex
@@ -101,8 +131,8 @@ header
         width: auto
         &:hover .cart-list
             right: 0 !important
-        &:hover .cart-list:hover::before
-            background-color: #000000AA
+            &::before
+                background-color: #000000AA !important
         .cart-items
             align-items: center
             background-color: var(--color-principal3)
@@ -205,20 +235,6 @@ footer
 hr, h4
     width: 100%
 
-@keyframes spin
-    from
-        transform: rotate(0deg)
-    to
-        transform: rotate(359deg)
-.loading
-    align-items: center
-    display: flex
-    font-size: 22px
-    height: 100%
-    justify-content: center
-    width: 100%
-    span
-        animation: spin 1s linear 0s infinite
 
 @media (min-width: 768px)
     header
