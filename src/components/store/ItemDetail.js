@@ -6,9 +6,11 @@ import { CartContext } from '../cart/CartContext'
 import ItemCount from '../store/ItemCount'
 
 const ItemDetail = ({ item }) => {
+    const [ loaded, setLoaded ] = useState(false)
     const [ quantity, setQuantity ] = useState(false)
-    const productClass = item?.stock ? '' : ' empty-stock'
+    const enptyStock = item?.stock ? '' : ' empty-stock'
     const { categories, addItem } = useContext(CartContext)
+    const filteredCategories = categories.length > 0 && item?.categories ? categories?.filter(c => item?.categories.includes(c?.slug)) : []
     const onAdd = (quantityToAdd) => {
         setQuantity(quantityToAdd)
         addItem(item, quantityToAdd)
@@ -16,13 +18,10 @@ const ItemDetail = ({ item }) => {
     }
     
     return (
-        <div className={'product detail '+productClass}>
-            <img src={item?.thumbnail} alt={item?.name} />
+        <div className={'product detail '+enptyStock+' '+loaded}>
+            <img src={item?.image} alt={item?.name} onLoad={() => setLoaded(true)} />
             <div className="detail">
-                <h5>{item?.categories?.map((c) => {
-                    const category = categories.find(e => e.slug == c)
-                    return <Link key={category.cid} to={`/category/${category.slug}/`}>{category.name}</Link>
-                }).reduce((prev, curr) => [prev, ', ', curr])}</h5>
+                <h5>{filteredCategories?.length > 0 ? filteredCategories.map((c) => <Link key={c.id} to={`/category/${c.slug}/`}>{c.name}</Link>).reduce((prev, curr) => [prev, ', ', curr]) : ''}</h5>
                 <h1>{item?.name}</h1>
                 <hr />
                 <p>{item?.description}</p>

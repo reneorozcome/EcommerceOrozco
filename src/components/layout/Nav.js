@@ -9,7 +9,7 @@ const Nav = () => {
         <nav>
             <Link to="/"><span className="material-icons">home</span></Link>
             {categories.map((c) => {
-                return <NavLink key={c.cid} to={`/category/${c.slug}/`}>{c.name}</NavLink>
+                return <NavLink key={c.id} to={`/category/${c.slug}/`}>{c.name}</NavLink>
             })}
         </nav>
     )

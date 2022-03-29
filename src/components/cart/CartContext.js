@@ -1,4 +1,6 @@
+import { db } from '../Firebase'
 import { toast, Flip } from 'react-toastify'
+import { collection, getDocs } from 'firebase/firestore'
 import { LoadingContext } from '../layout/LoadingContext'
 import { useState, useEffect, useContext, createContext } from 'react'
 
@@ -21,7 +23,7 @@ export const CartProvider = ({ children }) => {
             _cartItem.quantity += quantity
             _cart = [...cart]
         }else
-        _cart = [_cartItem, ...cart]
+            _cart = [_cartItem, ...cart]
         _productItem = products.find(p => p === item)
         _productItem.stock -= quantity
         setCart(_cart)
@@ -29,20 +31,11 @@ export const CartProvider = ({ children }) => {
     
     useEffect(() => {
         updateLoading(true)
-        setTimeout(() => {
-            fetch('/categories.json')
-            .then((res) => res.json())
-            .then((data) => {
-                console.log('change categories')
-                setCategories(data)
-                return fetch('/products.json')
-            })
-            .catch(() => toast.error('Ocurrió un error al intentar cargar las categorías.', {theme: "colored", transition: Flip}))
-            .then((res) => res.json())
-            .then((data) => setProducts(data))
-            .catch(() => toast.error('Ocurrió un error al intentar cargar los productos.', {theme: "colored", transition: Flip}))
+        const filteredQuery = collection(db, 'categories')
+        getDocs(filteredQuery)
+            .then((data) => { setCategories(data.docs.map(c => { return {id: c.id, ...c.data()} })) })
+            .catch(() => toast.error('Ocurrió un error al intentar cargar los categorías.', {theme: "colored", transition: Flip}))
             .finally(() => updateLoading(false))
-        }, 2000)
     }, [])
     
     const cartData = {categories, products, cart, addItem, removeItem, clear}

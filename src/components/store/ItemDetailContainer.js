@@ -1,5 +1,7 @@
+import { db } from '../Firebase'
 import { useParams } from 'react-router-dom'
-import { CartContext } from '../cart/CartContext'
+import { toast, Flip } from 'react-toastify'
+import { doc, getDoc } from 'firebase/firestore'
 import { useState, useEffect, useContext } from 'react'
 import { LoadingContext } from '../layout/LoadingContext'
 
@@ -7,20 +9,19 @@ import ItemDetail from '../store/ItemDetail'
 
 const ItemDetailContainer = () => {
     const { itemId } = useParams()
-    const { products } = useContext(CartContext)
     const [ product, setProduct ] = useState({})
     const { updateLoading } = useContext(LoadingContext)
 
     useEffect(() => {
-        updateLoading(true)
-        if(product?.id !== itemId)
-            setProduct(products.find(e => e?.id == itemId))
-        if(product?.thumbnail){
-            fetch(product.thumbnail)
-                .then(() => updateLoading(false))
-                .catch(() => console.log('error'))
+        if(product?.id !== itemId){
+            updateLoading(true)
+            const docRef = doc(db, 'products', itemId)
+            getDoc(docRef)
+                .then((data) => setProduct({id: data.id, ...data.data()}))
+                .catch(() => toast.error('Ocurrió un error al intentar cargar el producto.', {theme: "colored", transition: Flip}))
+                .finally(() => updateLoading(false))
         }
-    }, [itemId, products, product])
+    }, [itemId, product])
 
     return (
         <div className="container products-detail">

@@ -61,9 +61,13 @@ main
     margin: 0 10px 20px
     min-width: 260px
     max-width: calc((100% / 3) - 20px)
+    opacity: 0
     padding: 30px 15px
     position: relative
     text-align: left
+    transition: all 400ms
+    &.true
+        opacity: 1
     & > a
         display: block
         height: 195px
