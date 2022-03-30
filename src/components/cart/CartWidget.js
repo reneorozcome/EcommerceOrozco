@@ -29,7 +29,7 @@ const CartWidget = () => {
                                 </div>
                             )
                         })}
-                        <Link to="/cart/" className="button">Ir al carrito</Link>
+                        <Link to="/carrito/" className="button">Ir al carrito</Link>
                     </>
                 : <p>No hay productos en el carrito.</p>}
             </div>

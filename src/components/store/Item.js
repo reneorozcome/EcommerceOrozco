@@ -24,7 +24,7 @@ const Item = ({ item }) => {
             <h4>{item.name}</h4>
             <h5>{filteredCategories?.map((c) => <Link key={c.id} to={`/category/${c.slug}/`}>{c.name}</Link>).reduce((prev, curr) => [prev, ', ', curr])}</h5>
             <h6>{item.price?.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 })}</h6>
-            {quantity ? <Link to="/cart/" className="button">Terminar mi compra</Link> : <ItemCount stock={item.stock} onAdd={onAdd} />}
+            {quantity ? <Link to="/carrito/" className="button">Terminar mi compra</Link> : <ItemCount stock={item.stock} onAdd={onAdd} />}
         </div>
     )
 }

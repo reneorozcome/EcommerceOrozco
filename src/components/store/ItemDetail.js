@@ -27,7 +27,7 @@ const ItemDetail = ({ item }) => {
                 <p>{item?.description}</p>
                 <hr />
                 <h3>{item?.price?.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits: 0 })}</h3>
-                {quantity ? <Link to="/cart/" className="button">Terminar mi compra</Link> : <ItemCount stock={item?.stock} onAdd={onAdd} />}
+                {quantity ? <Link to="/carrito/" className="button">Terminar mi compra</Link> : <ItemCount stock={item?.stock} onAdd={onAdd} />}
             </div>
         </div>
     )

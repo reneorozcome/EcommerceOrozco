@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import Header from './Header'
 import Cart from '../cart/Cart'
+import Order from '../cart/Order'
 import ItemListContainer from '../store/ItemListContainer'
 import ItemDetailContainer from '../store/ItemDetailContainer'
 
@@ -18,7 +19,8 @@ const App = () => {
                     <Route path="/" element={<ItemListContainer />} />
                     <Route path="/category/:categoryId" element={<ItemListContainer />} />
                     <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/orden/:orderId" element={<Order />} />
+                    <Route path="/carrito" element={<Cart />} />
                 </Routes>
             </main>
             <footer>
