@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import Nav from './Nav.js'
+import NavBar from './NavBar.js'
 import CartWidget from '../cart/CartWidget.js'
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
         <header className="container">
             <a href="#" className="nav-button"><span></span></a>
             <h1><Link to="/"><span className="material-icons">local_mall</span> eCommerce Orozco</Link></h1>
-            <Nav />
+            <NavBar />
             <CartWidget />
         </header>
     )

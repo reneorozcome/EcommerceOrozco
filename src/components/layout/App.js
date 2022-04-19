@@ -1,4 +1,4 @@
-import Context from '../Context'
+import Contexts from '../Contexts'
 import { ToastContainer } from 'react-toastify'
 import { Routes, Route } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ import ItemDetailContainer from '../store/ItemDetailContainer'
 
 const App = () => {
     return (
-        <Context>
+        <Contexts>
             <header>
                 <Header />
             </header>
@@ -28,7 +28,7 @@ const App = () => {
                 con amor por reneorozco
             </footer>
             <ToastContainer position="bottom-right" />
-        </Context>
+        </Contexts>
     )
 }
 export default App

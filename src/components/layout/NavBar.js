@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { CartContext } from '../cart/CartContext'
 
-const Nav = () => {
+const NavBar = () => {
     const { categories } = useContext(CartContext)
     
     return (
@@ -14,4 +14,4 @@ const Nav = () => {
         </nav>
     )
 }
-export default Nav
+export default NavBar
