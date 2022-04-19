@@ -4,7 +4,7 @@ import { CartContext } from './CartContext'
 
 const Cart = () => {
     let _total = 0
-    const { cart, removeItem, clear, sendOrder } = useContext(CartContext)
+    const { cart, removeItem, clear } = useContext(CartContext)
 
     return (
         <div className="container cart">
@@ -41,7 +41,7 @@ const Cart = () => {
                     </table>
                     <hr />
                     <button className="button" onClick={clear}>Vaciar carrito</button>
-                    <button className="button" onClick={sendOrder}>Ordenar</button>
+                    <Link to="/finalizar-compra/" className="button">Ordenar</Link>
                 </>
             :
                 <>

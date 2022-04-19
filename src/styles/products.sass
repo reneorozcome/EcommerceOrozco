@@ -8,6 +8,8 @@ main
     padding: 30px
     text-align: center
     .cart
+        & > .button
+            margin: 0 4px
         table
             border-collapse: collapse
             font-size: 14px
@@ -123,6 +125,8 @@ main
             height: 20px
             justify-content: center
             width: 20px
+            &:hover
+                background-color: var(--color-principal2)
         input
             border: 1px solid var(--color-secundario2)
             border-radius: 8px
@@ -196,3 +200,23 @@ main
 .order
     p
         font-size: 16px
+
+form
+    display: block
+    div
+        display: block
+        margin: 0 auto 8px
+        max-width: 300px
+        label
+            display: block
+            font-size: 14px
+            font-weight: 400
+            text-align: left
+            width: 100%
+        input[type="text"], input[type="email"]
+            border: 1px solid var(--color-texto)
+            border-radius: 4px
+            height: 30px
+            width: 100%
+        .button
+            cursor: pointer

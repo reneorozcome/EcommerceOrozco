@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app'
+import { initializeApp } from '@firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const app = initializeApp({
@@ -7,6 +7,6 @@ const app = initializeApp({
     storageBucket: 'ecommerce-orozco.appspot.com',
     authDomain: 'ecommerce-orozco.firebaseapp.com',
     apiKey: 'AIzaSyC3PtEYGOQPPYPSAK4rDAKlWzRCmtvhIxU',
-    appId: '1:521927500428:web:88d1ea5018d73fab2cd1a9'
+    appId: '1:521927500428:web:cc88d743d07bd9c02cd1a9'
 })
 export const db = getFirestore(app)

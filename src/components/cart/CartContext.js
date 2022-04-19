@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
             _cart = [_cartItem, ...cart]
         setCart(_cart)
     }
-    const sendOrder = () => {
+    const sendOrder = (buyer) => {
         updateLoading(true)
         let _orderId
         let _total = 0
@@ -40,11 +40,7 @@ export const CartProvider = ({ children }) => {
             items: _items,
             total: _total,
             date: serverTimestamp(),
-            buyer: {
-                name: 'René Orozco',
-                phone: '3152708011',
-                email: 'natosrene@gmail.com'
-            }
+            buyer: buyer
         }
         addDoc(_orders, _order)
             .then(data => {

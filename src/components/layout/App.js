@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './Header'
 import Cart from '../cart/Cart'
 import Order from '../cart/Order'
+import Checkout from '../cart/Checkout'
 import ItemListContainer from '../store/ItemListContainer'
 import ItemDetailContainer from '../store/ItemDetailContainer'
 
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/item/:itemId" element={<ItemDetailContainer />} />
                     <Route path="/orden/:orderId" element={<Order />} />
                     <Route path="/carrito" element={<Cart />} />
+                    <Route path="/finalizar-compra" element={<Checkout />} />
                 </Routes>
             </main>
             <footer>
