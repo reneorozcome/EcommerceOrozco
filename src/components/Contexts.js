@@ -4,7 +4,7 @@ import { LoadingProvider } from './layout/LoadingContext'
 
 const Context = ({ children }) => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={'/ecommerce-orozco'}>
             <LoadingProvider>
                 <CartProvider>{children}</CartProvider>
             </LoadingProvider>

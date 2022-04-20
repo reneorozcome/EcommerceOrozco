@@ -65,12 +65,16 @@ header
         flex-wrap: wrap
         position: relative
     .nav-button
+        background: none
+        border: none
+        cursor: pointer
         display: block
-        height: 19px
-        padding: 8px 0 0
+        height: 40px
+        padding: 0
         position: absolute
         left: 20px
         width: 24px
+        z-index: 2
         span, span::before, span:after
             background-color: white
             border-radius: 2px
@@ -78,17 +82,19 @@ header
             display: block
             height: 3px
             position: absolute
+            top: calc(50% - 1px)
             width: 100%
         span::before
             top: -8px
         span::after
-            bottom: -8px
+            top: 8px
     h1
         font-size: 24px
         margin: 0
         text-align: center
         width: 100%
         a
+            display: inline
             font-size: inherit
             padding: 0
             &::after
@@ -114,14 +120,15 @@ header
     nav
         background-color: var(--color-principal2)
         flex: auto
-        left: 0
+        left: -30px
         max-height: 0
         padding: 0
+        overflow: hidden
         position: absolute
         text-align: right
-        top: 60px
+        top: 52px
         transition: max-height 300ms, padding 300ms
-        width: 100%
+        width: calc(100% + 60px)
         &.in
             max-height: 100vh
             padding: 40px 0
@@ -256,13 +263,11 @@ hr, h4, p
             background-color: transparent
             left: auto
             max-height: none
-            padding: 0
+            padding: 0 40px 0 0
             position: relative
             top: auto
             width: auto
         .cart
-            position: relative
-            right: auto
             .cart-items
                 right: 0px
 
@@ -274,6 +279,8 @@ hr, h4, p
             font-size: 16px
             padding: 10px 20px
         .cart
+            left: calc(50% + 50vw - 80px)
+            top: 2px
             .cart-items
                 right: 10px
 

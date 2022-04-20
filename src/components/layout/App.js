@@ -12,9 +12,7 @@ import ItemDetailContainer from '../store/ItemDetailContainer'
 const App = () => {
     return (
         <Contexts>
-            <header>
-                <Header />
-            </header>
+            <Header />
             <main>
                 <Routes>
                     <Route path="/" element={<ItemListContainer />} />
